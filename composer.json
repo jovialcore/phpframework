@@ -1,0 +1,12 @@
+{
+    "name": "jovialcore/demo-phpframework",
+    "description": "\"A sample php application to understand the under workings of a php framework\"",
+    "type": "project",
+    "license": "mit",
+    "autoload": {
+        "psr-4": {
+            "DemoPhpframework\\": "src/"
+        }
+    },
+    "require": {}
+}
