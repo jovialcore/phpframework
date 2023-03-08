@@ -8,5 +8,9 @@
             "DemoPhpframework\\": "src/"
         }
     },
-    "require": {}
+    "require": {
+        "php-di/php-di": "^7.0",
+        "relay/relay": "^2.1",
+        "laminas/laminas-diactoros": "^2.24"
+    }
 }
