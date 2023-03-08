@@ -6,8 +6,9 @@ namespace DemoPhpframework;
 
 class genesis
 {
-    public function speakTheWord(): void
+    public function __invoke(): void
     {
         echo " Let there be Light !!!!";
+        exit;
     }
 }

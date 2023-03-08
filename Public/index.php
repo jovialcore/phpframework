@@ -38,8 +38,11 @@ $routes = SimpleDispatcher(function (RouteCollector  $route) {
     $route->get('/genesis', genesis::class);
 });
 
-$middlewareQueue = [];
+$middlewareQueue[] = new FastRoute($routes);
+$middlewareQueue[] = new RequestHandler();
 
+
+//dispatcher following the psr-15 and psr-7 standards
 $requestHandler = new Relay($middlewareQueue);
 $requestHandler->handle(ServerRequestFactory::fromGlobals());
 $inTheBegining = $container->get(genesis::class);
