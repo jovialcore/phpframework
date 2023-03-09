@@ -24,7 +24,8 @@ $containerBuilder->useAutowiring(false);
 //$containerBuilder->useAnnotations(false); // annotations are now disabled by default no need to add them
 $containerBuilder->addDefinitions([
 
-    genesis::class => create(genesis::class)
+    genesis::class => create(genesis::class)->constructor('Foo'),
+    'Foo' => 'bar'
 ]);
 
 // understanding namespaces in php https://www.php.net/manual/en/language.namespaces.rationale.php#116280
@@ -39,7 +40,7 @@ $routes = SimpleDispatcher(function (RouteCollector  $route) {
 });
 
 $middlewareQueue[] = new FastRoute($routes);
-$middlewareQueue[] = new RequestHandler();
+$middlewareQueue[] = new RequestHandler($container);
 
 
 //dispatcher following the psr-15 and psr-7 standards
