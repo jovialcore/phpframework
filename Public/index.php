@@ -12,6 +12,7 @@ use Middlewares\RequestHandler;
 
 use Relay\Relay;
 use Laminas\Diactoros\ServerRequest;
+use Laminas\Diactoros\Response;
 use Laminas\Diactoros\ServerRequestFactory;
 
 use function FastRoute\SimpleDispatcher;
@@ -24,8 +25,11 @@ $containerBuilder->useAutowiring(false);
 //$containerBuilder->useAnnotations(false); // annotations are now disabled by default no need to add them
 $containerBuilder->addDefinitions([
 
-    genesis::class => create(genesis::class)->constructor('Foo'),
-    'Foo' => 'bar'
+    genesis::class => create(genesis::class)->constructor('Foo', new Response()),
+    'Foo' => 'bar',
+    'Response' => function () {
+        return new Response();
+    },
 ]);
 
 // understanding namespaces in php https://www.php.net/manual/en/language.namespaces.rationale.php#116280
@@ -46,9 +50,6 @@ $middlewareQueue[] = new RequestHandler($container);
 //dispatcher following the psr-15 and psr-7 standards
 $requestHandler = new Relay($middlewareQueue);
 $requestHandler->handle(ServerRequestFactory::fromGlobals());
-$inTheBegining = $container->get(genesis::class);
-
-$inTheBegining->announce();
 
 
 //the laminas diactoros package is to implemnet a PSR-7 compatible HTTP Messages
