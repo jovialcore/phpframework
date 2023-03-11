@@ -19,6 +19,8 @@ class genesis
         $this->a_variable = $a_variale;
         $this->response = $response;
     }
+
+
     public function __invoke(): ResponseInterface
     {
         $response = $this->response->withHeader('Content-Type', 'text/html');
