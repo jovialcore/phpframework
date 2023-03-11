@@ -48,6 +48,8 @@ $middlewareQueue[] = new RequestHandler($container);
 $requestHandler = new Relay($middlewareQueue);
 $response = $requestHandler->handle(ServerRequestFactory::fromGlobals());
 
+
+// response handler
 $emitter = new SapiEmitter();
 
 return $emitter->emit($response);
