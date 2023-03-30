@@ -7,6 +7,7 @@ What we did,
 -- composer setup and autoloading
 
 --dependency injection--creating  with php-di container
+--------What dependeincy containers do is to instantiate a class, so you don't need to call the new keyword hence you can just magically inject it as parameters of a function. 
 
 -- created the entry point for the framework 
 
