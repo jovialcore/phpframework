@@ -7,7 +7,8 @@ What we did,
 -- composer setup and autoloading
 
 --dependency injection--creating  with php-di container
---------What dependeincy containers do is to instantiate a class, so you don't need to call the new keyword hence you can just magically inject it as parameters of a function. 
+--------What dependeincy containers do is to  automatically instantiate your classes, so you don't need to call the new keyword hence you can just magically inject it as parameters of a function. it automatically injects a dependecny for your class parameter so you don't have to instantiate the classes (not like the class is not being instantiated but you will not need to use new Keyword, etc)
+
 
 -- created the entry point for the framework 
 
